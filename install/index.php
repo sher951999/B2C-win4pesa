@@ -216,17 +216,17 @@ if ($action == 'result') {
 			$engine =  @explode('-', $dbinfo)[1];
 			$version =  @explode('.', $dbinfo)[0] . '.' . @explode('.', $dbinfo)[1];
 
-			if (strtolower($engine) == 'mariadb') {
-				if ($version < 10.3) {
-					$response['error'] = 'error';
-					$response['message'] = 'MariaDB 10.3+ Or MySQL 5.7+ Required. <br> Your current version is MariaDB ' . $version;
-				}
-			} else {
-				if ($version < 5.7) {
-					$response['error'] = 'error';
-					$response['message'] = 'MariaDB 10.3+ Or MySQL 5.7+ Required. <br> Your current version is MySQL ' . $version;
-				}
-			}
+// 			if (strtolower($engine) == 'mariadb') {
+// 				if ($version < 10.3) {
+// 					$response['error'] = 'error';
+// 					$response['message'] = 'MariaDB 10.3+ Or MySQL 5.7+ Required. <br> Your current version is MariaDB ' . $version;
+// 				}
+// 			} else {
+// 				if ($version < 5.7) {
+// 					$response['error'] = 'error';
+// 					$response['message'] = 'MariaDB 10.3+ Or MySQL 5.7+ Required. <br> Your current version is MySQL ' . $version;
+// 				}
+// 			}
 		} catch (Exception $e) {
 			$response['error'] = 'error';
 			$response['message'] = $_POST['db_type'] == 'create-new-database' ? 'There is a problem with creating the database.' : 'Database Credential is Not Valid';
